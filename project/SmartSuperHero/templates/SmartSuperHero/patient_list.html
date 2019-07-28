@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center">Patient list !!!</h1>
+
+    {#    <p><a class="btn btn-primary" href="{% url "expenses:create" %}">Create new#}
+    {#        expense</a></p>#}
+
+    <div>
+        <table class="table table-hover">
+            <tr>
+                <th>first name</th>
+                <th>last name</th>
+                <th>id</th>
+                <th>diagnosis</th>
+                <th>birthday</th>
+            </tr>
+            {% for object in object_list %}
+
+
+                <tr>
+                    {#                <td>#}
+                    {#                    <a href="{% url "expenses:detail" object.id %}">#}
+                    {#                        #{{ object.id }}#}
+                    {#                    </a>#}
+                    {#                </td>#}
+                    <td>
+                        <a href="{% url "SmartSuperHero:detail" object.id %}">
+
+                            {{ object.first_name }}
+                        </a>
+                    </td>
+                    <td>
+                        {{ object.last_name }}
+                    </td>
+                    <td>
+                        {{ object.patient_id }}
+                    </td>
+                    <td>
+                        {{ object.diagnosis }}
+                    </td>
+                    <td>
+                        {{ object.birthday }}
+                    </td>
+                </tr>
+
+            {% endfor %}
+        </table>
+
+        <a class="btn btn-danger btn-lg" href="{% url "SmartSuperHero:add" %}">ADD</a>
+    </div>
+
+{% endblock %}

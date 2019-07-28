@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}
+    detail
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center">Patient detail !!!</h1>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col col-sm-4 text-center">
+                <a class="btn btn-primary" href="{% url "SmartSuperHero:question" first %}"> Add question</a>
+            </div>
+            <div class="col col-sm-4 text-center">
+                <button class="btn btn-primary"> Get feedback</button>
+            </div>
+            <div class="col col-sm-4 text-center">
+                <button class="btn btn-primary"> Add report</button>
+            </div>
+
+        </div>
+    </div>
+    <br>
+    <div>
+
+
+        <table class="table table-hover">
+            <tr>
+                <th>id</th>
+                <th>date</th>
+                <th>content</th>
+            </tr>
+            {% for object in reports %}
+
+
+                <tr>
+                    <td>
+                        {{ object.id }}
+                    </td>
+                    <td>
+                        {{ object.report_date }}
+
+                    </td>
+                    <td>
+                        <p>
+                            {{ object.report_content }}
+
+                        </p>
+                    </td>
+
+                </tr>
+
+            {% endfor %}
+        </table>
+        <div class="container">
+            <div class="row">
+
+                <div class="text-center">
+                    <a class="btn btn-danger" href="{% url "SmartSuperHero:list" %}"> Bsack </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <br>
+    <form action="{% url "SmartSuperHero:capture"  %}" method="post">
+    {% csrf_token %}
+        <button id="capture" class="btn btn-danger">Capture</button>
+    </form>
+
+{% endblock %}

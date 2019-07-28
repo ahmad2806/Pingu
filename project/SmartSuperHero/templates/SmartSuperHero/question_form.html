@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% block title %}
+    question
+{% endblock %}
+
+{% block content %}
+    <h1>Add question for patient {{ view.patient }}!!!</h1>
+    <br>
+    <form method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <button type="submit" class="btn btn-primary"> Submit </button>
+
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}
+

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+
+    <br>
+    <form method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <button type="submit" class="btn btn-primary"> HERE</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}
