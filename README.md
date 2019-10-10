@@ -26,6 +26,5 @@ To run this project use:
     pipenv run python main.py
 
 
-## Credits and References
-* {TODO}
-
+## Tools
+Google API Speech-Recognition, TensorFlow, Keras for facial expression, OpenCV for face recognition and Django.
